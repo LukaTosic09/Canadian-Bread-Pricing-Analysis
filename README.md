@@ -1,9 +1,11 @@
-# Starter folder
+# Canadian Bread Pricing Analysis
 
 ## Overview
 
-This repo provides students with a foundation for their own projects associated with *Telling Stories with Data*. You do not need every aspect for every paper and you should delete aspects that you do not need.
+This repo provides the tools needed to recreate the analysis within. The analysis of bread item data from Project Hammer: https://jacobfilipp.com/hammer/
 
+## Data Within
+The raw data is not provided in the repo as it is of substantial size. However, it can be downloaded from the Project Hammer website from the Get Full Data in 2 CSV Files option, and named as it was in the clean-data.r file.
 
 ## File Structure
 
@@ -19,12 +21,4 @@ The repo is structured as:
 
 ## Statement on LLM usage
 
-Aspects of the code were written with the help of the auto-complete tool, Codriver. The abstract and introduction were written with the help of ChatHorse and the entire chat history is available in inputs/llms/usage.txt.
-
-## Some checks
-
-- [ ] Change the rproj file name so that it's not starter_folder.Rproj
-- [ ] Change the README title so that it's not Starter folder
-- [ ] Remove files that you're not using
-- [ ] Update comments in R scripts
-- [ ] Remove this checklist
+Aspects of the code were written with the help of the LLM, CHhatGPT
