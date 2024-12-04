@@ -1,5 +1,6 @@
 ---
 title: "Describing Canadian Grocer Bread Pricing"
+subtitle: "My subtitle if needed"
 author:  Luka Tosic
 thanks: "Code and data are available at: https://github.com/LukaTosic09/final-paper.git"
 date: today
