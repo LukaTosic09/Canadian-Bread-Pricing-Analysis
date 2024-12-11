@@ -6,7 +6,8 @@ This repo provides the tools needed to recreate the analysis within. The analysi
 
 ## Raw Data
 *Important Note about Raw Data*
-The raw data is not provided in the repo as it is beyond the regular file size limit for GitHub. However, it can be downloaded from the Project Hammer website using the "Get Full Data in 2 CSV Files" option.
+
+The raw data is not provided in the repo as it is beyond the regular file size limit for GitHub. However, it can be downloaded from the Project Hammer website linked above using the "Get Full Data in 2 CSV Files" option.
 Once downloaded, anyone attempting to reproduce the work done in this repo should store the two csvs hammer-4-raw.csv and hammer-4-product.csv in .../data/00-raw_data.
 After that, consult 03-clean_data.R for the process of handling the data.
 
