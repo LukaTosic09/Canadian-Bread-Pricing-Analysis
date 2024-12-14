@@ -4,7 +4,7 @@ author:  Luka Tosic
 thanks: "Code and data are available at: https://github.com/LukaTosic09/final-paper.git"
 date: today
 date-format: long
-abstract: "This paper creates a descrpitive model of bread price for certain bread items found at major Canadian grocers. Analysis was conducted to find how much influence bread mass, the vendor it was purchased at, and the type of bread purchased had on the mean price of bread. From the findings, we predict that bread purchased at metro has a higher chance of being more expensive than from other vendors, and bread from T&T has a higher chance of being less expensive than from other vendors. The findings of this paper give Canadian shoppers the information to understand some of the factors influencing bread prices, and what vendors to seek out or avoid for cost effective buying options. Further analysis would look at other mainstay and essential grocery items such as milk, eggs and rice."
+abstract: "This paper creates a descriptive model of bread price for certain bread items found at major Canadian grocers. Analysis was conducted to find how much influence bread mass, the vendor it was purchased at, and the type of bread purchased had on the mean price of bread. From the findings, we predict that bread purchased at Metro has a higher chance of being more expensive than from other vendors, and bread from T&T has a higher chance of being less expensive than from other vendors. The findings of this paper give Canadian shoppers the information to understand some of the factors influencing bread prices, and what vendors to seek out or avoid for cost-effective buying options. Further analysis would look at other mainstay and essential grocery items such as milk, eggs and rice."
 format: pdf
 number-sections: true
 bibliography: references.bib
@@ -19,29 +19,29 @@ bibliography: references.bib
 library(tidyverse)
 library(arrow)
 
-products <- read_parquet("~/Canadian-Bread-Pricing-Analysis/Bread-Pricing-Analysis/data/02-analysis_data/analysis_data.parquet")
-time_data <- read_parquet("~/Canadian-Bread-Pricing-Analysis/Bread-Pricing-Analysis/data/02-analysis_data/nowtime_data.parquet")
+products <- read_parquet("~/Canadian-Bread-Pricing-Analysis/data/02-analysis_data/analysis_data.parquet")
+time_data <- read_parquet("~/Canadian-Bread-Pricing-Analysis/data/02-analysis_data/nowtime_data.parquet")
 ```
 
 # Introduction
 
 ## Overview paragraph
 
-Groceries are a major expensive in most Canadian households (), and as inflation grows and wages stagnate (), budgeting for groceries becomes increasingly more important. This paper aims to understand and describe the pricing trends in the cheapest bread and milk options among the eight of the major grocery vendors in Canada: Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart and Save-On-Foods. This paper will utilize linear regression modeling to create descriptive models of the mean price for bread based on previous pricing trends, the vendor, and other predictors. The motivation behind analyzing bread items is their ubiquity in the diets of Canadians. 
+Groceries are a major expense in most Canadian households (), and as inflation grows and wages stagnate (), budgeting for groceries becomes increasingly more important. This paper aims to understand and describe the pricing trends in the cheapest bread and milk options among the eight of major grocery vendors in Canada: Voila, T&T, Loblaws, No Frills, Metro, Galleria, Walmart and Save-On-Foods. This paper will utilize linear regression modelling to create descriptive models of the mean price for bread based on previous pricing trends, the vendor, and other predictors. The motivation behind analyzing bread items is their ubiquity in the diets of Canadians. 
 
 ## Estimand
 
-The estimand that this paper aims to estimate through linear regression is the mean bread item price per unit by vendor. As stated, a multiple linear regression model will be utilized as an estimator for this estimate. Linear regression naturally captures the variability or noise of a statistically linear relationship, and attempts to explain this variation through a functional relationship. Through a mix of regression methods, a best model will be fit for each vendor.
+The estimand that this paper aims to estimate through linear regression is the mean bread item price per unit by vendor. As stated, a multiple linear regression model will be utilized as an estimator for this estimate. Linear regression naturally captures the variability or noise of a statistically linear relationship and attempts to explain this variation through a functional relationship. Through a mix of regression methods, a best model will be fit for each vendor.
 
 ## Results paragraph
 
-In short, Metro's branding carries a slight factor into bread price, with their's and Loblaw's increasing mean bread price the most. It was also found that Voila and TandT bread increased mean bread price the least. Another finding was that whole wheat and especially white bread decrease mean bread price compared to sourdough.
+In short, Metro's branding carries a slight factor into bread price, with their and Loblaw's increasing mean bread price the most. It was also found that Voila and TandT bread increased mean bread price the least. Another finding was that whole wheat and especially white bread decreased mean bread price compared to sourdough.
 
 ## Why it matters paragraph
 
-The need here is for Canadian's to gauge broadly the affordability of groceries across common vendors. The hope is that the results will be meaningful enough that potential shoppers would be able to know where to go for more affordable groceries, an endeavor that becomes more necessary as groceries continue to grow into more of an expense.
+The need here is for Canadians to gauge broadly the affordability of groceries across common vendors. The hope is that the results will be meaningful enough that potential shoppers would be able to know where to go for more affordable groceries, an endeavour that becomes more necessary as groceries continue to grow into more of an expense.
 
-The rationale behind analyzing bread prices is that they are common use grocery items in many Canadian households. Moreover, bread is one of the simplest and most symbolic foods eaten in the Western world, and is a fitting starting point when doing pricing analysis on groceries.
+The rationale behind analyzing bread prices is that they are commonly used grocery items in many Canadian households. Moreover, bread is one of the simplest and most symbolic foods eaten in the Western world, and is a fitting starting point when doing pricing analysis on groceries.
 
 ##Telegraphing paragraph: The remainder of this paper is structured as follows. @sec-data....
 
@@ -49,31 +49,31 @@ The data section outlines the predictor variables chosen to fit the models and t
 
 The model section goes over the process by which the model was fit, the checks on regression assumptions and how violations were minimized. It also covers tests on the statistical significance of the model and its goodness. Broadly, it covers all elements of the final model's creation.
 
-The results section showcases the results of the model fitting process and what information it offers us.
+The results section showcases the results of the model fitting process and the information it offers us.
 
-The discussion section contains an in-depth look at the results and interprets them to come to conclusions about the estimand, as well as other practical conclusions that may be drawn. It also touches on limitations of the model, what it cannot be used to tell us, and how the data and model can be refined to gain further information.
+The discussion section contains an in-depth look at the results and interprets them to come to conclusions about the estimand, as well as other practical conclusions that may be drawn. It also touches on the limitations of the model, what it cannot be used to tell us, and how the data and model can be refined to gain further information.
 
 
 # Data {#sec-data}
 
 ## Overview
 
-We use the statistical programming language R [@citeR] to perform our analysis and produce our model, in addition to Quarto to create this paper. Our data [@hammer] is taken from the Project Hammer website, by Jacob Filipp. From Jacob himself on his website, "Project Hammer aims to drive more competition and reduce collusion in the Canadian grocery sector." Following @tellingstories, we consider the five step procss of telling a story with data: we plan an endpoint, simulate data for it, acquire and explore real data, explore and model data, and finally share and discuss our results.
+We use the statistical programming language R [@citeR] to perform our analysis and produce our model, in addition to Quarto to create this paper. Our data [@hammer] is taken from the Project Hammer website, by Jacob Filipp. From Jacob himself on his website, "Project Hammer aims to drive more competition and reduce collusion in the Canadian grocery sector." Following @tellingstories, we consider the five-step process of telling a story with data: we plan an endpoint, simulate data for it, acquire and explore real data, explore and model data, and finally share and discuss our results.
 
 
 ## Measurement
 
-The observations in the dataset are all individual grocery items from one of the eight major vendors mentioned above. According to [@hammer], the dataset is updated with observations taken by screen scraping the website UIs of the vendors'grocery store websites. As such, all grocery information is already made publicly available on the internet by the vendors. Another point made by [@hammer] is that the prices recorded are made by setting an "in-store pickup" option for some Toronto neighbourhood. This is relevant to note as what neighbourhood each entry's price refers to is not included in the data.
+The observations in the dataset are all individual grocery items from one of the eight major vendors mentioned above. According to [@hammer], the dataset is updated with observations taken by screen scraping the website UIs of the vendors' grocery store websites. As such, all grocery information is already made publicly available on the internet by the vendors. Another point made by [@hammer] is that the prices recorded are made by setting an "in-store pickup" option for some Toronto neighbourhood. This is relevant to note as what neighbourhood each entry's price refers to is not included in the data.
 
-The API scrapes website UI, so all the information it gathers is what the grocer's make available on their websites; and moreover, not every grocer's website includes the same variables in the same way (or at all), so some pre-processing would have been required to get the observations into the dataset in the same format. Broadly, each observation is a text encoding of the information that a vendor has displayed on their website about a grocery item that they are selling, taken at a specific time from a specific vendor. Since data entries take note of date and time to the second, there are many instances of the same grocery item from the same vendor, recorded at multiple different points in time. This characteristic of the dataset makes it possible to conduct price analysis over time on grocery items, and to take note of a changing status of an item, such as "out of stock", or "sale" in the other column, if any such applicable information is listed on the vendor's page for that item. 
+The API scrapes website UI, so all the information it gathers is what the grocers make available on their websites; and moreover, not every grocer's website includes the same variables in the same way (or at all), so some pre-processing would have been required to get the observations into the dataset in the same format. Broadly, each observation is a text encoding of the information that a vendor has displayed on their website about a grocery item that they are selling, taken at a specific time from a specific vendor. Since data entries take note of date and time to the second, there are many instances of the same grocery item from the same vendor, recorded at multiple different points in time. This characteristic of the dataset makes it possible to conduct price analysis over time on grocery items, and to take note of a changing status of an item, such as "out of stock", or "sale" in the other column, if any such applicable information is listed on the vendor's page for that item. 
 
 ## Data Cleaning
 
 The original raw dataset has over 12 million observations and needed to be joined with the product dataset that contains categorical information on each of the roughly 130,000 unique grocery items. While the product data had information such as item id, it more importantly contained detailed information about what each id was, and what vendor it was from, whereas the raw data had the current and old prices, the price per unit, units, and time of data collection for many multitudes of instances of the same id, or the same grocery item. 
 
-The id or product_id columns were of particular importance, not only because they allowed for the joining of the two initial datasets, but also because multiple instances of the same grocery item with different time and/or date values in the nowtime column could be grouped or viewed as one with the product_id column. The product_name column can achieve the same result, and is useful for searching, but product_id was used in most instances to parse through or select in code as a short one to six digit id is shorter than any product name.
+The id or product_id columns were of particular importance, not only because they allowed for the joining of the two initial datasets, but also because multiple instances of the same grocery item with different time and/or date values in the nowtime column could be grouped or viewed as one with the product_id column. The product_name column can achieve the same result, and is useful for searching, but product_id was used in most instances to parse through or select in code as a short one to six-digit id is shorter than any product name.
 
-The product_name column was used to filter out any grocery items that were not bread, including any bread adjacent items like bread mix or breadcrumbs.  As well, the product_name string was used to filter for only bread items that were of the type "white", "whole", or "sourdough", after which all bread items received one of those values in the newly created bread_type column. The reason behind limiting the data to only bread items of those types is that it allowed us to remove any observations that were labeled as bread, but were not what one would typically consider when looking to buy a loaf, such as fruit bread which is more of a dessert. Additionally, this cut the number of observations down from roughly 160,000 to roughly 50,000, which is much more manageable to work with.
+The product_name column was used to filter out any grocery items that were not bread, including any bread-adjacent items like bread mix or breadcrumbs.  As well, the product_name string was used to filter for only bread items that were of the type "white", "whole", or "sourdough", after which all bread items received one of those values in the newly created bread_type column. The reason behind limiting the data to only bread items of those types is that it allowed us to remove any observations that were labelled as bread, but were not what one would typically consider when looking to buy a loaf, such as fruit bread which is more of a dessert. Additionally, this cut the number of observations down from roughly 160,000 to roughly 50,000, which is much more manageable to work with.
 
 Next, items whose units were not in grams were removed, so that the units column could more easily be converted to a numeric, and also to filter out any items that were large packs of several bulk bread items, as such observations would be more difficult to work with, and may not follow a typical pricing relationship.
 
@@ -94,7 +94,7 @@ Use sub-sub-headings for each outcome variable and feel free to combine a few in
 
 ### Nowtime
 
-The first variable of interest is nowtime. This variable is not used in the primary descriptive model, but is instead used to create a plot of price per unit versus time for several bread items. The values stored inside the variable are a date and time of the form yyyy-mm-dd hh:mm:ss. The reason behind not including the variable in the primary model is that we expect an increase of close to 0 dollars for a unit unit increase in nowtime, even if the variable is transformed to partition time into far larger slices than seconds, that is to say, we do not expect it to affect the mean price of a bread item as the current price value for any nowtime does not change for most items, and for the ones that it does change, it is generally for a very small number of observations of the same product. 
+The first variable of interest is nowtime. This variable is not used in the primary descriptive model, but is instead used to create a plot of price per unit versus time for several bread items. The values stored inside the variable are a date and time of the form yyyy-mm-dd hh:mm:ss. The reason behind not including the variable in the primary model is that we expect an increase of close to 0 dollars for a unit increase in nowtime, even if the variable is transformed to partition time into far larger slices than seconds, that is to say, we do not expect it to affect the mean price of a bread item as the current price value for any nowtime does not change for most items, and for the ones that it does change, it is generally for a very small number of observations of the same product. 
 
 ### Mass - Units
 
